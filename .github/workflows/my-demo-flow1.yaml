@@ -1,9 +1,31 @@
 name: my demo flow
 on: workflow_dispatch
+env:
+  my_wf_env: i am the wf variable
 jobs:
   my_first_job:
     runs-on: ubuntu-slim
+    env:
+      my_job1_env: i am the job1 variable
     steps:
-      - name: my steps
+      - name: my steps of job1
+        env:
+          my_job1_step1_env: i am the job1/step1 variable
         run: |
-          echo "welcome to wf"
+          echo "welcome to job1"
+          echo "welcome to my_wf_env is $my_wf_env"
+          echo "welcome to my_job1_env is $my_job1_env"
+          echo "welcome to my_job1_step1_env is $my_job1_step1_env"
+  my_second_job:
+    runs-on: ubuntu-slim
+    env:
+      my_job2_env: i am the job2 variable
+    steps:
+      - name: my steps of job2
+        env:
+          my_job2_step1_env: i am the job2/step1 variable
+        run: |
+          echo "welcome to job2"
+          echo "welcome to my_wf_env is $my_wf_env"
+          echo "welcome to my_job2_env is $my_job2_env"
+          echo "welcome to my_job2_step1_env is $my_job2_step1_env"
