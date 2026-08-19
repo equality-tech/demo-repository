@@ -1,0 +1,9 @@
+name: my demo flow
+on: workflow_dispatch
+jobs:
+  my_first_job:
+    runs-on: ubuntu-slim
+    steps:
+      - name: my steps
+        run: |
+          echo "welcome to wf"
