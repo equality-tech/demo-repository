@@ -18,6 +18,6 @@ jobs:
           echo "$${{secrets.SECRETE_REPO_VAR}}"
           echo "------------"
           echo "------environment i,e production level------"
-          echo "$${{vars.PROD_SECRETE_VAR}}"
+          echo "$${{vars.PROD_VAR}}"
           echo "$${{secrets.PROD_SECRETE_VAR}}"
           echo "------------"
