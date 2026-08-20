@@ -4,7 +4,7 @@ on: workflow_dispatch
 jobs:
   my_first_job:
     environment:
-      name: Production      
+      name: Stage      
     runs-on: ubuntu-slim    
     steps:
       - name: my steps of job1        
