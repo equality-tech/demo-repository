@@ -1,16 +1,23 @@
 name: my demo flow
 on: workflow_dispatch
-env:
-  my_wf_env: i am the wf variable
+
 jobs:
   my_first_job:
-    runs-on: ubuntu-slim
-    env:
-      my_wf_env: i am the job1 variable
+    environment:
+      name: Production      
+    runs-on: ubuntu-slim    
     steps:
-      - name: my steps of job1
-        env:
-          my_wf_env: i am the job1/step1 variable
+      - name: my steps of job1        
         run: |
-          echo "welcome to job1"
-          echo "welcome to my_wf_env is ${{env.my_wf_env}}"
+          echo "------org level------"
+          echo "$${{vars.ORG_VAR}}"
+          echo "$${{secrets.SECRETE_ORG_VAR}}"
+          echo "------------"
+          echo "------repo level------"
+          echo "$${{vars.REPO_VAR}}"
+          echo "$${{secrets.SECRETE_REPO_VAR}}"
+          echo "------------"
+          echo "------environment i,e production level------"
+          echo "$${{vars.DEV_VAR}}"
+          echo "$${{secrets.DEV_SECRETE_VAR}}"
+          echo "------------"
